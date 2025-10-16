@@ -46,59 +46,56 @@
         </section>
 
         <!-- Modal Filtro Avançado -->
-        <div id="filter-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <h2>Filtro Avançado</h2>
-                <form id="filter-form">
-                    <!-- Tipo de Vaga -->
-                    <div class="form-group">
-                        <label for="tipo">Tipo de Vaga</label>
-                        <select id="tipo">
-                            <option value="">Todos</option>
-                            <option value="estagio">Estágio</option>
-                            <option value="clt">Emprego</option>
-                            <option value="pj">Emprego</option>
-                        </select>
-                    </div>
+<div id="filter-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Filtro Avançado</h2>
+    <form id="filter-form">
+      <div class="form-group">
+        <label for="tipo">Tipo de Vaga</label>
+        <select id="tipo">
+          <option value="">Todos</option>
+          <option value="Estágio">Estágio</option>
+          <option value="CLT">CLT</option>
+        </select>
+      </div>
 
-                    <!-- Cidade - Estado -->
-                    <div class="form-group">
-                        <label for="local">Cidade - Estado</label>
-                        <select id="local">
-                            <option value="">Todos</option>
-                            <option value="recife-pe">Recife - PE</option>
-                            <option value="olinda-pe">Olinda - PE</option>
-                            <option value="paulista-pe">Paulista - PE</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="formato">Formato</label>
-                        <select id="formato">
-                            <option value="">Todos</option>
-                            <option value="hibrido">Hibrido</option>
-                            <option value="presencial">Presencial - PE</option>
-                            <option value="remoto">Remoto</option>
-                        </select>
-                    </div>
+      <div class="form-group">
+        <label for="formato">Formato</label>
+        <select id="formato">
+          <option value="">Todos</option>
+          <option value="Híbrido">Híbrido</option>
+          <option value="Presencial">Presencial</option>
+          <option value="Remoto">Remoto</option>
+        </select>
+      </div>
 
-                    <!-- Habilidades como balões -->
-                    <div class="form-group">
-                        <label>Habilidades</label>
-                        <div class="habilidades-baloes">
-                            <span class="badge" data-value="python">Python</span>
-                            <span class="badge" data-value="javascript">JavaScript</span>
-                            <span class="badge" data-value="sql">SQL</span>
-                            <span class="badge" data-value="gestao">Gestão</span>
-                            <span class="badge" data-value="comunicacao">Comunicação</span>
-                        </div>
-                    </div>
+      <div class="form-group">
+        <label for="local">Cidade</label>
+        <select id="local">
+          <option value="">Todos</option>
+          <option value="Recife-PE">Recife - PE</option>
+          <option value="Olinda-PE">Olinda - PE</option>
+          <option value="Paulista-PE">Paulista - PE</option>
+          <option value="Remoto">Remoto</option>
+        </select>
+      </div>
 
-
-                    <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
-                </form>
-            </div>
+      <div class="form-group">
+        <label>Habilidades</label>
+        <div class="habilidades-baloes">
+          <span class="badge" data-value="Python">Python</span>
+          <span class="badge" data-value="JavaScript">JavaScript</span>
+          <span class="badge" data-value="SQL">SQL</span>
+          <span class="badge" data-value="Gestão">Gestão</span>
+          <span class="badge" data-value="UX/UI">UX/UI</span>
         </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
+    </form>
+  </div>
+</div>
 
         <section>
             <div class="container">
