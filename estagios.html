@@ -33,43 +33,22 @@
         </section>
 
         <section>
-            <div class="container">
-                <div class="grid grid-2-cols">
-                    <div class="card estagio-item">
-                        <h3>Estágio em Business Intelligence (BI)</h3>
-                        <p><strong>Empresa:</strong> Porto Digital</p>
-                        <p><strong>Local:</strong> Recife, PE (Híbrido)</p>
-                        <p><strong>Descrição:</strong> Auxiliar na criação de dashboards em Power BI, extração e tratamento de dados SQL, e análise de indicadores de negócio.</p>
-                        <div class="tags"><span>Estágio</span><span>SQL</span><span>Power BI</span></div>
-                        <a href="#" class="btn btn-primary-dark" style="margin-top: 15px;">Ver Detalhes</a>
-                    </div>
-                    <div class="card estagio-item">
-                        <h3>Analista de Dados Jr.</h3>
-                        <p><strong>Empresa:</strong> Neurotech</p>
-                        <p><strong>Local:</strong> Remoto</p>
-                        <p><strong>Descrição:</strong> Foco em análise exploratória de dados com Python, construção de modelos preditivos e apresentação de resultados para stakeholders.</p>
-                        <div class="tags"><span>CLT</span><span>Remoto</span><span>Python</span></div>
-                        <a href="#" class="btn btn-primary-dark" style="margin-top: 15px;">Ver Detalhes</a>
-                    </div>
-                    <div class="card estagio-item">
-                        <h3>Estágio em UX Design / Arquitetura da Informação</h3>
-                        <p><strong>Empresa:</strong> Accenture</p>
-                        <p><strong>Local:</strong> Recife, PE</p>
-                        <p><strong>Descrição:</strong> Participar de pesquisas com usuários, criação de wireframes e protótipos de baixa e alta fidelidade, e documentação de jornadas de usuário.</p>
-                        <div class="tags"><span>Estágio</span><span>UX/UI</span><span>Figma</span></div>
-                        <a href="#" class="btn btn-primary-dark" style="margin-top: 15px;">Ver Detalhes</a>
-                    </div>
-                     <div class="card estagio-item">
-                        <h3>Estágio em Governança de Dados</h3>
-                        <p><strong>Empresa:</strong> CESAR</p>
-                        <p><strong>Local:</strong> Recife, PE</p>
-                        <p><strong>Descrição:</strong> Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.</p>
-                        <div class="tags"><span>Estágio</span><span>Governança</span></div>
-                        <a href="#" class="btn btn-primary-dark" style="margin-top: 15px;">Ver Detalhes</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="container">
+        <div id="grid-cards" class="grid grid-2-cols">
+            <!-- Os cards serão injetados pelo JS -->
+        </div>
+
+        <!-- Paginação -->
+        <div id="paginacao-container" class="paginacao" style="display:flex; justify-content:center; gap:5px; margin-top:20px;">
+            <button id="primeira">«</button>
+            <button id="anterior">‹</button>
+            <span id="numeros"></span>
+            <button id="proxima">›</button>
+            <button id="ultima">»</button>
+        </div>
+    </div>
+</section>
+
     </main>
 
 
