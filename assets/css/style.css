@@ -192,28 +192,3 @@ nav ul li a.active { color: var(--secondary-color); border-bottom: 2px solid var
     height: 100%;
     border: none;
 }
-
-/* Grid e cards continuam como estão */
-
-/* Paginação fixa no fundo */
-.paginacao {
-    position: fixed;       /* fixa na tela */
-    bottom: 10px;          /* 10px do fundo */
-    left: 50%;             /* centraliza horizontal */
-    transform: translateX(-50%);
-    display: flex;
-    gap: 5px;
-    background: #fff;      /* fundo branco */
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    z-index: 1000;         /* acima do conteúdo */
-}
-.paginacao button.ativo {
-    background-color: #333;
-    color: #fff;
-}
-.paginacao button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
