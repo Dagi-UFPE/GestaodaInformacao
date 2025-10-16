@@ -41,11 +41,11 @@ window.onload = () => {
 
     // Dados das vagas
     const estagios = [
-        { titulo: "Estágio em Business Intelligence (BI)", empresa: "Porto Digital", local: "Recife, PE (Híbrido)", descricao: "Auxiliar na criação de dashboards em Power BI, extração e tratamento de dados SQL, e análise de indicadores de negócio.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["SQL", "Power BI"], url:"https://gestaodainformacao.netlify.app/o-curso" },
-        { titulo: "Analista de Dados Jr.", empresa: "Neurotech", local: "Remoto", descricao: "Foco em análise exploratória de dados com Python, construção de modelos preditivos e apresentação de resultados para stakeholders.", tipo: "CLT", formato: "Remoto", cidade: "Remoto", stack: ["Python"], url:"https://gestaodainformacao.netlify.app/o-curso" },
-        { titulo: "Estágio em UX Design / Arquitetura da Informação", empresa: "Accenture", local: "Recife, PE", descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos, e documentação de jornadas de usuário.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["UX/UI", "Figma"], url:"https://gestaodainformacao.netlify.app/o-curso" },
-        { titulo: "Estágio em Governança de Dados", empresa: "CESAR", local: "Recife, PE", descricao: "Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["Governança"], url:"https://gestaodainformacao.netlify.app/o-curso" },
-        { titulo: "Estágio em Engenharia de Software", empresa: "In Loco", local: "Recife, PE", descricao: "Acompanhar o desenvolvimento de aplicações web e mobile, revisão de código e integração de APIs.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["JavaScript", "React"], url:"https://gestaodainformacao.netlify.app/o-curso" }
+        { titulo: "Estágio em Business Intelligence (BI)", empresa: "Porto Digital", local: "Recife, PE (Híbrido)", descricao: "Auxiliar na criação de dashboards em Power BI, extração e tratamento de dados SQL, e análise de indicadores de negócio.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["SQL", "Power BI"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+        { titulo: "Analista de Dados Jr.", empresa: "Neurotech", local: "Remoto", descricao: "Foco em análise exploratória de dados com Python, construção de modelos preditivos e apresentação de resultados para stakeholders.", tipo: "CLT", formato: "Remoto", cidade: "Remoto", stack: ["Python"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+        { titulo: "Estágio em UX Design / Arquitetura da Informação", empresa: "Accenture", local: "Recife, PE", descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos, e documentação de jornadas de usuário.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["UX/UI", "Figma"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+        { titulo: "Estágio em Governança de Dados", empresa: "CESAR", local: "Recife, PE", descricao: "Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["Governança"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+        { titulo: "Estágio em Engenharia de Software", empresa: "In Loco", local: "Recife, PE", descricao: "Acompanhar o desenvolvimento de aplicações web e mobile, revisão de código e integração de APIs.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["JavaScript", "React"], url: "https://gestaodainformacao.netlify.app/o-curso" }
     ];
 
     const totalPaginas = () => Math.ceil(filtrarVagas().length / porPagina);
@@ -65,17 +65,25 @@ window.onload = () => {
         });
     }
 
-    // Renderizar cards
-    function renderizarCards() {
+    // Renderizar cards + paginação
+    function atualizarPagina() {
         grid.innerHTML = "";
         const vagasFiltradas = filtrarVagas();
         const inicio = (paginaAtual - 1) * porPagina;
         const fim = inicio + porPagina;
-        vagasFiltradas.slice(inicio, fim).forEach(vaga => {
+        const vagasPagina = vagasFiltradas.slice(inicio, fim);
+
+        if (vagasPagina.length === 0) {
+            grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center;">Nenhuma vaga encontrada com os filtros selecionados.</p>`;
+            paginacaoContainer.style.display = "none";
+            return;
+        }
+
+        vagasPagina.forEach(vaga => {
             const card = document.createElement("div");
             card.className = "card estagio-item";
             const tagsPrincipais = [vaga.tipo, vaga.formato, vaga.cidade, ...vaga.stack].filter(Boolean);
-            const tagsHTML = tagsPrincipais.map(tag => `<span class="tag-balao">${tag}</span>`).join(' ');
+            const tagsHTML = tagsPrincipais.map(tag => `<span>${tag}</span>`).join(' ');
             card.innerHTML = `
                 <h3>${vaga.titulo}</h3>
                 <p><strong>Empresa:</strong> ${vaga.empresa}</p>
@@ -94,8 +102,12 @@ window.onload = () => {
     function renderizarBotoes() {
         numerosSpan.innerHTML = "";
         const vagasFiltradas = filtrarVagas();
-        if (vagasFiltradas.length <= porPagina) { paginacaoContainer.style.display = "none"; return; }
-        else { paginacaoContainer.style.display = "flex"; }
+        if (vagasFiltradas.length <= porPagina) {
+            paginacaoContainer.style.display = "none";
+            return;
+        } else {
+            paginacaoContainer.style.display = "flex";
+        }
 
         const maxVisiveis = 3;
         let start = Math.max(1, paginaAtual - 1);
@@ -113,16 +125,18 @@ window.onload = () => {
         if (end < totalPaginas()) numerosSpan.append("...");
     }
 
-    // Atualizar página (cards + paginação)
-    function atualizarPagina() {
-        renderizarCards();
-        renderizarBotoes();
-    }
-
     // Modal
     document.getElementById("advanced-filter-btn").onclick = () => filterModal.style.display = "block";
-    document.querySelector(".close-modal").onclick = () => filterModal.style.display = "none";
-    window.onclick = (e) => { if (e.target === filterModal) filterModal.style.display = "none"; }
+    document.querySelector(".close-modal").onclick = () => {
+        aplicarFiltros();
+        filterModal.style.display = "none";
+    };
+    window.onclick = (e) => {
+        if (e.target === filterModal) {
+            aplicarFiltros();
+            filterModal.style.display = "none";
+        }
+    };
 
     // Habilidades clicáveis
     badges.forEach(badge => {
@@ -140,42 +154,70 @@ window.onload = () => {
 
     // Aplicar filtro do modal
     filterForm.addEventListener("submit", e => {
-    e.preventDefault();
+        e.preventDefault();
+        aplicarFiltros();
+        filterModal.style.display = "none";
+    });
 
-    // Reconstrói filtrosStack a partir dos badges selecionados
-    filtrosStack = Array.from(badges)
-        .filter(badge => badge.classList.contains("selecionado"))
-        .map(badge => badge.dataset.value);
+    // Aplicar filtros (reutilizável)
+    function aplicarFiltros() {
+        filtrosStack = Array.from(badges)
+            .filter(badge => badge.classList.contains("selecionado"))
+            .map(badge => badge.dataset.value);
 
-    filtrosAplicados = {
-        tipo: filtroTipo.value,
-        formato: filtroFormato.value,
-        cidade: filtroCidade.value,
-        stack: [...filtrosStack]
-    };
+        filtrosAplicados = {
+            tipo: filtroTipo.value,
+            formato: filtroFormato.value,
+            cidade: filtroCidade.value,
+            stack: [...filtrosStack]
+        };
 
-    paginaAtual = 1;
-    filterModal.style.display = "none";
-    atualizarFiltrosAtivos();
-    atualizarPagina();
-});
-
+        paginaAtual = 1;
+        atualizarFiltrosAtivos();
+        atualizarPagina();
+    }
 
     // Filtros ativos
     function atualizarFiltrosAtivos() {
         filtroAtivosContainer.innerHTML = "";
+
         Object.entries(filtrosAplicados).forEach(([key, value]) => {
             if (Array.isArray(value)) {
-                value.forEach(v => { if(v) adicionarBadgeAtivo(v); });
-            } else if(value) { adicionarBadgeAtivo(value); }
+                value.forEach(v => { if (v) adicionarBadgeAtivo(v, key); });
+            } else if (value) { adicionarBadgeAtivo(value, key); }
         });
     }
-    function adicionarBadgeAtivo(valor) {
+
+    function adicionarBadgeAtivo(valor, tipo) {
         const span = document.createElement("span");
         span.className = "tag-balao ativo";
         span.textContent = valor;
+
+        // Clique no balão para remover
+        span.addEventListener("click", () => {
+            // Remove do filtro aplicado
+            
+            if (Array.isArray(filtrosAplicados[tipo])) {
+                filtrosAplicados[tipo] = filtrosAplicados[tipo].filter(v => v !== valor);
+            } else {
+                filtrosAplicados[tipo] = "";
+            }
+            
+            // Remove a marcação no modal
+            badges.forEach(badge => {
+                if (badge.dataset.value === valor) {
+                    badge.classList.remove("selecionado","selected");
+                }
+            });
+            
+
+            atualizarFiltrosAtivos();
+            atualizarPagina();
+        });
+
         filtroAtivosContainer.appendChild(span);
     }
+
 
     // Botões de paginação
     document.getElementById("primeira").onclick = () => { paginaAtual = 1; atualizarPagina(); };

@@ -1,162 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vagas de Estágio - Gestão da Informação</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vagas de Estágio - Gestão da Informação</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    </head>
 
-<body>
-    <header id="main-header">
-        <div class="container">
-            <a href="index.html" class="logo"><img src="./assets/images/Brasão_da_UFPE.png" alt="Logo GI"><span>Gestão
-                    da<br>Informação</span></a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="o-curso.html">O Curso</a></li>
-                    <li><a href="vida-academica.html" class="active">Vida Acadêmica</a></li>
-                    <li><a href="projetos.html">Projetos</a></li>
-                    <li><a href="comunidade.html">Comunidade</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="page-hero">
+    <body>
+        <header id="main-header">
             <div class="container">
-                <h1>Oportunidades de Estágio e Emprego</h1>
-                <p>Conectando nossos alunos com as melhores vagas do mercado de tecnologia e informação.</p>
+                <a href="index.html" class="logo"><img
+                        src="./assets/images/Brasão_da_UFPE.png"
+                        alt="Logo GI"><span>Gestão
+                        da<br>Informação</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="o-curso.html">O Curso</a></li>
+                        <li><a href="vida-academica.html" class="active">Vida
+                                Acadêmica</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="comunidade.html">Comunidade</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
             </div>
-        </section>
-        <section class="search-section">
-            <div class="container">
-                <div class="search-bar">
-                    <input type="text" id="search-input" placeholder="Pesquisar vagas...">
-                    <button id="advanced-filter-btn" class="btn btn-secondary">Filtro Avançado <i
-                            class="fa fa-sliders"></i></button>
+        </header>
+
+        <main>
+            <section class="page-hero">
+                <div class="container">
+                    <h1>Oportunidades de Estágio e Emprego</h1>
+                    <p>Conectando nossos alunos com as melhores vagas do mercado
+                        de tecnologia e informação.</p>
+                </div>
+            </section>
+            <section class="search-section">
+                <div class="container">
+                    <div class="search-bar">
+                        <input type="text" id="search-input"
+                            placeholder="Pesquisar vagas...">
+                        <button id="advanced-filter-btn"
+                            class="btn btn-secondary">Filtro Avançado <i
+                                class="fa fa-sliders"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal Filtro Avançado -->
+            <div id="filter-modal" class="modal">
+                <div class="modal-content">
+                    <span id="close" class="close-modal">&times;</span>
+                    <h2>Filtro Avançado</h2>
+                    <form id="filter-form">
+                        <div class="form-group">
+                            <label for="tipo">Tipo de Vaga</label>
+                            <select id="tipo">
+                                <option value>Todos</option>
+                                <option value="Estágio">Estágio</option>
+                                <option value="CLT">CLT</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formato">Formato</label>
+                            <select id="formato">
+                                <option value>Todos</option>
+                                <option value="Híbrido">Híbrido</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Remoto">Remoto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="local">Cidade</label>
+                            <select id="local">
+                                <option value>Todos</option>
+                                <option value="Recife-PE">Recife - PE</option>
+                                <option value="Olinda-PE">Olinda - PE</option>
+                                <option value="Paulista-PE">Paulista -
+                                    PE</option>
+                                <option value="Remoto">Remoto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Habilidades</label>
+                            <div class="habilidades-baloes">
+                                
+                            </div>
+                        </div>
+
+                        <button id="filtrar" type="submit"
+                            class="btn btn-primary">Aplicar
+                            Filtro</button>
+                    </form>
                 </div>
             </div>
-        </section>
+            <div id="filtros-ativos-container">
+                <div id="filtros-ativos"></div>
+            </div>
 
-        <!-- Modal Filtro Avançado -->
-<div id="filter-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h2>Filtro Avançado</h2>
-    <form id="filter-form">
-      <div class="form-group">
-        <label for="tipo">Tipo de Vaga</label>
-        <select id="tipo">
-          <option value="">Todos</option>
-          <option value="Estágio">Estágio</option>
-          <option value="CLT">CLT</option>
-        </select>
-      </div>
+            <section>
+                <div class="container">
+                    <div id="grid-cards" class="grid grid-2-cols">
+                        <!-- Os cards serão injetados pelo JS -->
+                    </div>
 
-      <div class="form-group">
-        <label for="formato">Formato</label>
-        <select id="formato">
-          <option value="">Todos</option>
-          <option value="Híbrido">Híbrido</option>
-          <option value="Presencial">Presencial</option>
-          <option value="Remoto">Remoto</option>
-        </select>
-      </div>
+                    <!-- Paginação -->
+                    <div id="paginacao-container" class="paginacao"
+                        style="display:flex; justify-content:center; gap:5px; margin-top:20px;">
+                        <button id="primeira">«</button>
+                        <button id="anterior">‹</button>
+                        <span id="numeros"></span>
+                        <button id="proxima">›</button>
+                        <button id="ultima">»</button>
+                    </div>
+                </div>
+            </section>
 
-      <div class="form-group">
-        <label for="local">Cidade</label>
-        <select id="local">
-          <option value="">Todos</option>
-          <option value="Recife-PE">Recife - PE</option>
-          <option value="Olinda-PE">Olinda - PE</option>
-          <option value="Paulista-PE">Paulista - PE</option>
-          <option value="Remoto">Remoto</option>
-        </select>
-      </div>
+        </main>
 
-      <div class="form-group">
-        <label>Habilidades</label>
-        <div class="habilidades-baloes">
-          <span class="badge" data-value="Python">Python</span>
-          <span class="badge" data-value="JavaScript">JavaScript</span>
-          <span class="badge" data-value="SQL">SQL</span>
-          <span class="badge" data-value="Gestão">Gestão</span>
-          <span class="badge" data-value="UX/UI">UX/UI</span>
-        </div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
-    </form>
-  </div>
-</div>
-
-        <section>
+        <footer id="main-footer">
             <div class="container">
-                <div id="grid-cards" class="grid grid-2-cols">
-                    <!-- Os cards serão injetados pelo JS -->
+                <div class="footer-col">
+                    <a href="index.html" class="logo"><span>Gestão da
+                            Informação</span></a>
+                    <p>Site desenvolvido e mantido pelo Diretório Acadêmico do
+                        curso de Gestão da Informação da UFPE.</p>
+                    <div class="social-icons"><a
+                            href="https://www.instagram.com/dagiufpe?igsh=MWQ0eGo3ODg5ejV4MQ=="><i
+                                class="fab fa-instagram"></i></a><a
+                            href="https://www.facebook.com/dagiufpe/"><i
+                                class="fab fa-facebook"></i></a></div>
                 </div>
-
-                <!-- Paginação -->
-                <div id="paginacao-container" class="paginacao"
-                    style="display:flex; justify-content:center; gap:5px; margin-top:20px;">
-                    <button id="primeira">«</button>
-                    <button id="anterior">‹</button>
-                    <span id="numeros"></span>
-                    <button id="proxima">›</button>
-                    <button id="ultima">»</button>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="o curso.html">O Curso</a></li>
+                        <li><a href="vida academica.html">Vida
+                                Acadêmica</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="https://www.ufpe.br/">Site UFPE</a></li>
+                        <li><a href="https://sigaa.ufpe.br/">SIG@</a></li>
+                        <li><a
+                                href="https://www.ufpe.br/sib">Bibliotecas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <p>Av. da Arquitetura, S/n - Campus Universitário, Recife -
+                        PE, 50740-550<br>Cidade Universitária,
+                        Recife - PE</p>
+                    <p><a
+                            href="mailto:ufpedagi@gmail.com">ufpedagi@gmail.com</a></p>
                 </div>
             </div>
-        </section>
-
-    </main>
-
-
-    <footer id="main-footer">
-        <div class="container">
-            <div class="footer-col">
-                <a href="index.html" class="logo"><span>Gestão da Informação</span></a>
-                <p>Site desenvolvido e mantido pelo Diretório Acadêmico do curso de Gestão da Informação da UFPE.</p>
-                <div class="social-icons"><a href="https://www.instagram.com/dagiufpe?igsh=MWQ0eGo3ODg5ejV4MQ=="><i
-                            class="fab fa-instagram"></i></a><a href="https://www.facebook.com/dagiufpe/"><i
-                            class="fab fa-facebook"></i></a></div>
+            <div class="footer-bottom">
+                <p>&copy 2025 Diretório Acadêmico de Gestão da Informação -
+                    UFPE.</p>
             </div>
-            <div class="footer-col">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="o curso.html">O Curso</a></li>
-                    <li><a href="vida academica.html">Vida Acadêmica</a></li>
-                    <li><a href="projetos.html">Projetos</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Links Úteis</h4>
-                <ul>
-                    <li><a href="https://www.ufpe.br/">Site UFPE</a></li>
-                    <li><a href="https://sigaa.ufpe.br/">SIG@</a></li>
-                    <li><a href="https://www.ufpe.br/sib">Bibliotecas</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contato</h4>
-                <p>Av. da Arquitetura, S/n - Campus Universitário, Recife - PE, 50740-550<br>Cidade Universitária,
-                    Recife - PE</p>
-                <p><a href="mailto:ufpedagi@gmail.com">ufpedagi@gmail.com</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy 2025 Diretório Acadêmico de Gestão da Informação - UFPE.</p>
-        </div>
-    </footer>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/modal.js"></script>
-    <script src="assets/js/filtro.js"></script>
-</body>
+        </footer>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/modal.js"></script>
+        <script src="assets/js/filtro.js"></script>
+    </body>
 
 </html>
