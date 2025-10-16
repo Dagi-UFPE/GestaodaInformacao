@@ -71,35 +71,40 @@ window.onload = () => {
                 empresa: "Porto Digital",
                 local: "Recife, PE (Híbrido)",
                 descricao: "Auxiliar na criação de dashboards em Power BI, extração e tratamento de dados SQL, e análise de indicadores de negócio.",
-                tags: ["Estágio", "SQL", "Power BI"]
+                tags: ["Estágio", "SQL", "Power BI"],
+                url:"https://gestaodainformacao.netlify.app/o-curso"
             },
             {
                 titulo: "Analista de Dados Jr.",
                 empresa: "Neurotech",
                 local: "Remoto",
                 descricao: "Foco em análise exploratória de dados com Python, construção de modelos preditivos e apresentação de resultados para stakeholders.",
-                tags: ["CLT", "Remoto", "Python"]
+                tags: ["CLT", "Remoto", "Python"],
+                url:"https://gestaodainformacao.netlify.app/o-curso"
             },
             {
                 titulo: "Estágio em UX Design / Arquitetura da Informação",
                 empresa: "Accenture",
                 local: "Recife, PE",
                 descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos de baixa e alta fidelidade, e documentação de jornadas de usuário.",
-                tags: ["Estágio", "UX/UI", "Figma"]
+                tags: ["Estágio", "UX/UI", "Figma"],
+                url:"https://gestaodainformacao.netlify.app/o-curso"
             },
             {
                 titulo: "Estágio em Governança de Dados",
                 empresa: "CESAR",
                 local: "Recife, PE",
                 descricao: "Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.",
-                tags: ["Estágio", "Governança"]
+                tags: ["Estágio", "Governança"],
+                url:"https://gestaodainformacao.netlify.app/o-curso"
             },
             {
                 titulo: "Estágio em Engenharia de Software",
                 empresa: "In Loco",
                 local: "Recife, PE",
                 descricao: "Acompanhar o desenvolvimento de aplicações web e mobile, revisão de código e integração de APIs.",
-                tags: ["Estágio", "JavaScript", "React"]
+                tags: ["Estágio", "JavaScript", "React"],
+                url:"https://gestaodainformacao.netlify.app/o-curso"
             }
         ];
 
@@ -122,7 +127,7 @@ window.onload = () => {
                     <p><strong>Local:</strong> ${estagio.local}</p>
                     <p><strong>Descrição:</strong> ${estagio.descricao}</p>
                     <div class="tags">${estagio.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
-                    <a href="#" class="btn btn-primary-dark" style="margin-top: 15px;">Ver Detalhes</a>
+                    <a href="${estagio.url}" class="btn btn-primary-dark" style="margin-top: 15px;">Ver Detalhes</a>
                 `;
                 grid.appendChild(card);
             });
