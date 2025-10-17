@@ -215,7 +215,7 @@ nav ul li a.active {
 
 .footer-col h4 {
     color: var(--white-color);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .footer-col ul {
@@ -224,8 +224,17 @@ nav ul li a.active {
 
 .footer-col ul li a {
     color: var(--white-color);
-    padding: 5px 0;
     display: block;
+}
+
+.footer-col p a {
+    color: var(--white-color);
+    display: block;
+}
+
+.footer-col p {
+    color: var(--white-color);
+    margin:10px;
 }
 
 .footer-col .social-icons {
@@ -818,4 +827,52 @@ nav ul li a.active {
 .badge.selecionado {
     background: #007bff;
     color: #fff;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.paginacao button {
+  border: 1px solid #aaa;
+  background: #f9f9f9;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin: 2px;
+  transition: 0.2s;
+}
+
+/* Botões que não têm a classe 'ativo' e não têm a classe 'pagina' */
+.paginacao button:not(.ativo):not(.botaoPaginacao):hover {
+    background: #e6e6e6;
+    cursor: pointer;
+}
+
+
+.paginacao button:disabled {
+  opacity: 0.5;
+  
+}
+
+.numero {
+  display: flex;
+  gap: 5px;
+  font-size:10px;
+  display: inline-block; /* necessário para vertical-align funcionar */
+  vertical-align: bottom; /* alinha o span em relação à linha de base */
+}
+.numero:not(button) {
+  font-weight: bold;
+}
+
+.numero .ativo {
+  background-color: #0b0b0b;
+  color: #fff;
+  border: 2px solid #333;
+  font-weight: bold;
+  font-size: 20px;
 }

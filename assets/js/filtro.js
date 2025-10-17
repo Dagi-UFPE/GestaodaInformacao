@@ -33,7 +33,6 @@ const badges = document.querySelectorAll(".habilidades-baloes .badge");
 // Container que exibe filtros ativos
 const filtroAtivosContainer = document.getElementById("filtros-ativos");
 
-
 /**
  * ============================================================
  * DADOS E CONFIGURAÇÃO
@@ -42,6 +41,25 @@ const filtroAtivosContainer = document.getElementById("filtros-ativos");
 
 // Lista de estágios/vagas
 const estagios = [
+    { titulo: "Estágio em Business Intelligence (BI)", empresa: "Porto Digital", local: "Recife, PE", descricao: "Auxiliar na criação de dashboards em Power BI, extração e tratamento de dados SQL, e análise de indicadores de negócio.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["SQL", "Power BI"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Analista de Dados Jr.", empresa: "Neurotech", local: "Recife, PE", descricao: "Foco em análise exploratória de dados com Python, construção de modelos preditivos e apresentação de resultados para stakeholders.", tipo: "CLT", formato: "Remoto", cidade: "Recife-PE", stack: ["Python"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em UX Design / Arquitetura da Informação", empresa: "Accenture", local: "Recife, PE", descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos, e documentação de jornadas de usuário.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["UX/UI", "Figma"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Governança de Dados", empresa: "CESAR", local: "Recife, PE", descricao: "Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["Governança"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Engenharia de Software", empresa: "In Loco", local: "Recife, PE", descricao: "Acompanhar o desenvolvimento de aplicações web e mobile, revisão de código e integração de APIs.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["JavaScript", "React"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em UX Design / Arquitetura da Informação", empresa: "Accenture", local: "Recife, PE", descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos, e documentação de jornadas de usuário.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["UX/UI", "Figma"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Governança de Dados", empresa: "CESAR", local: "Recife, PE", descricao: "Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["Governança"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em UX Design / Arquitetura da Informação", empresa: "Accenture", local: "Recife, PE", descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos, e documentação de jornadas de usuário.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["UX/UI", "Figma"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Governança de Dados", empresa: "CESAR", local: "Recife, PE", descricao: "Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["Governança"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Engenharia de Software", empresa: "In Loco", local: "Recife, PE", descricao: "Acompanhar o desenvolvimento de aplicações web e mobile, revisão de código e integração de APIs.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["JavaScript", "React"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em UX Design / Arquitetura da Informação", empresa: "Accenture", local: "Recife, PE", descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos, e documentação de jornadas de usuário.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["UX/UI", "Figma"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Governança de Dados", empresa: "CESAR", local: "Recife, PE", descricao: "Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["Governança"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Engenharia de Software", empresa: "In Loco", local: "Recife, PE", descricao: "Acompanhar o desenvolvimento de aplicações web e mobile, revisão de código e integração de APIs.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["JavaScript", "React"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Engenharia de Software", empresa: "In Loco", local: "Recife, PE", descricao: "Acompanhar o desenvolvimento de aplicações web e mobile, revisão de código e integração de APIs.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["JavaScript", "React"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Business Intelligence (BI)", empresa: "Porto Digital", local: "Recife, PE", descricao: "Auxiliar na criação de dashboards em Power BI, extração e tratamento de dados SQL, e análise de indicadores de negócio.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["SQL", "Power BI"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Analista de Dados Jr.", empresa: "Neurotech", local: "Recife, PE", descricao: "Foco em análise exploratória de dados com Python, construção de modelos preditivos e apresentação de resultados para stakeholders.", tipo: "CLT", formato: "Remoto", cidade: "Recife-PE", stack: ["Python"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em UX Design / Arquitetura da Informação", empresa: "Accenture", local: "Recife, PE", descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos, e documentação de jornadas de usuário.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["UX/UI", "Figma"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Governança de Dados", empresa: "CESAR", local: "Recife, PE", descricao: "Apoiar na implementação de políticas de governança de dados, mapeamento de metadados e garantia da qualidade dos dados mestres.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["Governança"], url: "https://gestaodainformacao.netlify.app/o-curso" },
+    { titulo: "Estágio em Engenharia de Software", empresa: "In Loco", local: "Recife, PE", descricao: "Acompanhar o desenvolvimento de aplicações web e mobile, revisão de código e integração de APIs.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["JavaScript", "React"], url: "https://gestaodainformacao.netlify.app/o-curso" },
     { titulo: "Estágio em Business Intelligence (BI)", empresa: "Porto Digital", local: "Recife, PE", descricao: "Auxiliar na criação de dashboards em Power BI, extração e tratamento de dados SQL, e análise de indicadores de negócio.", tipo: "Estágio", formato: "Híbrido", cidade: "Recife-PE", stack: ["SQL", "Power BI"], url: "https://gestaodainformacao.netlify.app/o-curso" },
     { titulo: "Analista de Dados Jr.", empresa: "Neurotech", local: "Recife, PE", descricao: "Foco em análise exploratória de dados com Python, construção de modelos preditivos e apresentação de resultados para stakeholders.", tipo: "CLT", formato: "Remoto", cidade: "Recife-PE", stack: ["Python"], url: "https://gestaodainformacao.netlify.app/o-curso" },
     { titulo: "Estágio em UX Design / Arquitetura da Informação", empresa: "Accenture", local: "Recife, PE", descricao: "Participar de pesquisas com usuários, criação de wireframes e protótipos, e documentação de jornadas de usuário.", tipo: "Estágio", formato: "Presencial", cidade: "Recife-PE", stack: ["UX/UI", "Figma"], url: "https://gestaodainformacao.netlify.app/o-curso" },
@@ -59,7 +77,6 @@ const totalPaginas = () => Math.ceil(filtrarVagas().length / porPagina);
 let filtrosStack = [];
 let filtrosAplicados = {};
 let paginaAtual = 1;
-
 
 /**
  * ============================================================
@@ -118,6 +135,37 @@ function filtrarVagas() {
     });
 }
 
+function verificarBotaoPagina() {
+    document.getElementById("primeira").disabled = paginaAtual === 1;
+    document.getElementById("anterior").disabled = paginaAtual === 1;
+    document.getElementById("proxima").disabled = paginaAtual === totalPaginas();
+    document.getElementById("ultima").disabled = paginaAtual === totalPaginas();
+
+    if (document.getElementById("primeira").disabled) {
+        document.getElementById("primeira").classList = "botaoPaginacao"
+    } else {
+        document.getElementById("primeira").classList = ""
+    }
+
+    if (document.getElementById("anterior").disabled) {
+        document.getElementById("anterior").classList = "botaoPaginacao"
+    } else {
+        document.getElementById("anterior").classList = ""
+    }
+
+    if (document.getElementById("proxima").disabled) {
+        document.getElementById("proxima").classList = "botaoPaginacao"
+    } else {
+        document.getElementById("proxima").classList = ""
+    }
+
+    if (document.getElementById("ultima").disabled) {
+        document.getElementById("ultima").classList = "botaoPaginacao"
+    } else {
+        document.getElementById("ultima").classList = ""
+    }
+}
+
 
 /**
  * Atualiza os cards exibidos na página atual
@@ -128,6 +176,7 @@ function atualizarPagina() {
     const inicio = (paginaAtual - 1) * porPagina;
     const fim = inicio + porPagina;
     const vagasPagina = vagasFiltradas.slice(inicio, fim);
+    verificarBotaoPagina()
 
     if (vagasPagina.length === 0) {
         grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center;">Nenhuma vaga encontrada com os filtros selecionados.</p>`;
@@ -178,7 +227,10 @@ function renderizarBotoes() {
     for (let i = start; i <= end; i++) {
         const btn = document.createElement("button");
         btn.textContent = i;
-        if (i === paginaAtual) btn.classList.add("ativo");
+        if (i === paginaAtual) {
+            btn.classList.add("ativo");
+            btn.disabled = true;
+        }
         btn.addEventListener("click", () => { paginaAtual = i; atualizarPagina(); });
         numerosSpan.appendChild(btn);
     }
@@ -294,10 +346,27 @@ function adicionarBadgeAtivo(valor, tipo) {
  * EVENTOS DE PAGINAÇÃO
  * ============================================================
  */
-document.getElementById("primeira").onclick = () => { paginaAtual = 1; atualizarPagina(); };
-document.getElementById("anterior").onclick = () => { if (paginaAtual > 1) paginaAtual--; atualizarPagina(); };
-document.getElementById("proxima").onclick = () => { if (paginaAtual < totalPaginas()) paginaAtual++; atualizarPagina(); };
-document.getElementById("ultima").onclick = () => { paginaAtual = totalPaginas(); atualizarPagina(); };
+document.getElementById("primeira").onclick = () => {
+    paginaAtual = 1;
+    atualizarPagina();
+};
+document.getElementById("anterior").onclick = () => {
+    if (paginaAtual > 1) {
+        paginaAtual--;
+        atualizarPagina();
+    }
+};
+document.getElementById("proxima").onclick = () => {
+    if (paginaAtual < totalPaginas()) {
+        paginaAtual++;
+        atualizarPagina();
+    };
+};
+document.getElementById("ultima").onclick = () => {
+    paginaAtual = totalPaginas();
+    atualizarPagina();
+};
+
 
 
 /**
