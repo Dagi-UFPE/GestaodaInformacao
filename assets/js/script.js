@@ -53,7 +53,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Mensagem de log para confirmar que os scripts foram carregados
-    console.log("Scripts do site GI-UFPE carregados!");
 });
