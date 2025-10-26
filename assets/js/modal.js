@@ -101,14 +101,6 @@ span.onclick = () => {
     aplicarFiltros(); // Aplica os filtros ao fechar
 };
 
-// Fecha o modal ao clicar fora dele
-window.onclick = (event) => {
-    if (event.target === modal) {
-        modal.style.display = "none";
-        aplicarFiltros(); // Aplica os filtros ao fechar
-    }
-};
-
 
 /**
  * ============================================================
