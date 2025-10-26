@@ -246,7 +246,6 @@ badges.forEach(badge => {
         const valor = badge.dataset.value;
         if (filtrosStack.includes(valor)) {
             filtrosStack = filtrosStack.filter(s => s !== valor);
-            badge.classList.remove("selecionado", "selected");
         } else {
             filtrosStack.push(valor);
             badge.classList.add("selecionado", "selected");

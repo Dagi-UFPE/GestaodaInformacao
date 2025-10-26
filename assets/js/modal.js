@@ -111,7 +111,7 @@ span.onclick = () => {
 // Marca ou desmarca badges ao clicar
 document.querySelectorAll('.habilidades-baloes .badge').forEach(bal => {
     bal.addEventListener('click', () => {
-        bal.classList.toggle('selected');
+        bal.classList.add("selected","selecionado");
     });
 });
 
